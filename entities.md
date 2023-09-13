@@ -14,6 +14,9 @@ The "User" stores information about users of the system:
 
 **5. surname (CHAR)**: user's last name.
 
+-  **MtO relation with Review, Role**
+-  **OtM relation with Transaction**
+
 ---
 
 ## Review
@@ -58,6 +61,8 @@ The "Fuel Inventory" keeps track of the inventory of various fuel types availabl
 
 **3. pricePerUnit (FLOAT)**: records the price per unit (e.g., gallon or liter) of the fuel type. It represents the cost customers pay for each unit of the specified fuel type
 
+-  **MtO relation with Fuel type**
+
 ---
 
 ## Fuel Dispenser Table
@@ -90,6 +95,8 @@ The "Transaction" records details of transactions conducted at the gas station, 
 
 **6. fuelDispensed (FLOAT)**: the quantity of fuel dispensed in the transaction
 
+-  **MtO relation with Fuel dispenser**
+
 ---
 
 ## Sales Report
@@ -116,6 +123,8 @@ The "Special Offer" manages special offers and promotions related to the gas sta
 
 **4. discount (INT)**: records the discount amount or percentage offered by the special promotion
 
+-  **MtO relation with Loyality program**
+
 ---
 
 ## Loyality program
@@ -124,6 +133,8 @@ The "Loyality program" is used for storing info about special promotions
 
 **1. name(CHAR)**: the naming of the particular program
 **2. rules(CHAR)**: rules needed to be complied with in order for program to be active
+
+-  **MtM relation with User**
 
 ---
 
@@ -136,6 +147,8 @@ The "Journal" is used to log various actions or events within the system:
 **2. user (Foreign Key)**: a foreign key that references the user who performed the action or event being logged
 
 **3. date (DATETIME)**: records the date and time when the action or event was logged
+
+-  **MtO relation with Action type**
 
 ---
 
@@ -151,6 +164,6 @@ The "Action type" is used to store different actions that users can perform:
 
 The "Card" is used by customers to apply discounts:
 
-**1. owner (Foreign Key)**: a foreign key that references the owner of the card
+**1. owner (Foreign Key)**: a foreign key that references the owner of the card / **OtO relation with User**
 
 **2. discount (CHAR)**: a value that references the % discount owner gets for purchases
