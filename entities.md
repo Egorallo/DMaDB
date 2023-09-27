@@ -1,6 +1,6 @@
 ### Entities
 
-## User
+## User Table
 
 The "User" stores information about users of the system:
 
@@ -14,12 +14,12 @@ The "User" stores information about users of the system:
 
 **5. surname (CHAR)**: user's last name.
 
--  **MtO relation with Review, Role**
--  **OtM relation with Transaction**
+-  **MtO relation with Role**
+-  **OtM relation with Transaction, Review**
 
 ---
 
-## Review
+## Review Table
 
 The "Review" is used to store reviews and ratings for a particular fuel pump:
 
@@ -35,7 +35,7 @@ The "Review" is used to store reviews and ratings for a particular fuel pump:
 
 ---
 
-## Role
+## Role Table
 
 The "Role" is used to determine which role the user belongs to:
 
@@ -43,7 +43,7 @@ The "Role" is used to determine which role the user belongs to:
 
 ---
 
-## Fuel type
+## Fuel type Table
 
 The "Fuel type" is used for storing, well, fuel type:
 
@@ -51,7 +51,7 @@ The "Fuel type" is used for storing, well, fuel type:
 
 ---
 
-## Fuel Inventory
+## Fuel Inventory Table
 
 The "Fuel Inventory" keeps track of the inventory of various fuel types available:
 
@@ -99,7 +99,7 @@ The "Transaction" records details of transactions conducted at the gas station, 
 
 ---
 
-## Sales Report
+## Sales Report Table
 
 The "Sales Report" is used to store sales data and related information for the gas station:
 
@@ -127,7 +127,7 @@ The "Special Offer" manages special offers and promotions related to the gas sta
 
 ---
 
-## Loyality program
+## Loyality program Table
 
 The "Loyality program" is used for storing info about special promotions
 
@@ -138,7 +138,7 @@ The "Loyality program" is used for storing info about special promotions
 
 ---
 
-## Journal
+## Journal Table
 
 The "Journal" is used to log various actions or events within the system:
 
@@ -152,7 +152,7 @@ The "Journal" is used to log various actions or events within the system:
 
 ---
 
-## Action type
+## Action type Table
 
 The "Action type" is used to store different actions that users can perform:
 
@@ -160,7 +160,7 @@ The "Action type" is used to store different actions that users can perform:
 
 ---
 
-## Card
+## Card Table
 
 The "Card" is used by customers to apply discounts:
 
