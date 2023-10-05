@@ -1,21 +1,27 @@
-### Entities
+# Entities
 
 ## User Table
 
 The "User" stores information about users of the system:
 
-**1. email (CHAR)**: email address of the user
+**1. id (INT)**: primary key
 
-**2. password (CHAR)**: user's password
+**2. email (CHAR)**: email address of the user
 
-**3. role (Foreign Key)**: a foreign key that references the user's role
+**3. password (CHAR)**: user's password
 
-**4. name (CHAR)**: user's first name.
+**4. role (Foreign Key)**: a foreign key that references the user's role
 
-**5. surname (CHAR)**: user's last name.
+**5. name (CHAR)**: user's first name
+
+**6. surname (CHAR)**: user's last name
 
 -  **MtO relation with Role**
--  **OtM relation with Transaction, Review**
+-  **OtM relation with Transaction**
+-  **OtM relation with Review**
+-  **OtM relation with Journal**
+-  **OtO relation with Card**
+-  **MtM relation with Loyality program**
 
 ---
 
@@ -23,15 +29,19 @@ The "User" stores information about users of the system:
 
 The "Review" is used to store reviews and ratings for a particular fuel pump:
 
-**1. text (CHAR)**: text content of the review, allowing users to provide feedback or comments
+**1. id (INT)**: primary key
 
-**2. author (Foreign Key)**: a foreign key that references the author of the review
+**2. text (CHAR)**: text content of the review, allowing users to provide feedback or comments
 
-**2. date (DATETIME)**: date when this review has been submitted
+**3. user (Foreign Key)**: a foreign key that references the author of the review
 
-**3. dispenser (Foreign Key)**: a foreign key that references a fuel pump, which user decided to leave review for
+**4. date (DATETIME)**: date when this review has been submitted
 
-**4. rating (INT)**: a rating that user leaves, 1-5⭐
+**5. dispenser (Foreign Key)**: a foreign key that references a fuel pump, which user decided to leave review for
+
+**6. rating (INT)**: a rating that user leaves, 1-5⭐
+
+-  **MtO relation with User**
 
 ---
 
@@ -39,7 +49,11 @@ The "Review" is used to store reviews and ratings for a particular fuel pump:
 
 The "Role" is used to determine which role the user belongs to:
 
-**1. name(CHAR)**: naming of this particular role(customer, employee, admin)
+**1. id (INT)**: primary key
+
+**2. name(CHAR)**: naming of this particular role(customer, employee, admin)
+
+-  **OtM relation with User**
 
 ---
 
@@ -47,7 +61,11 @@ The "Role" is used to determine which role the user belongs to:
 
 The "Fuel type" is used for storing, well, fuel type:
 
-**1. name(CHAR)**: the type of fuel
+**1. id (INT)**: primary key
+
+**2. name(CHAR)**: the type of fuel
+
+-  **OtM relation with Fuel inventory**
 
 ---
 
@@ -55,13 +73,16 @@ The "Fuel type" is used for storing, well, fuel type:
 
 The "Fuel Inventory" keeps track of the inventory of various fuel types available:
 
-**1. fuelType (Foreign Key)**: a foreign key that references the type of fuel stored in the inventory
+**1. id (INT)**: primary key
 
-**2. quantity (FLOAT)**: current quantity of the specified fuel type in the inventory
+**2. fuelType (Foreign Key)**: a foreign key that references the type of fuel stored in the inventory
 
-**3. pricePerUnit (FLOAT)**: records the price per unit (e.g., gallon or liter) of the fuel type. It represents the cost customers pay for each unit of the specified fuel type
+**3. quantity (FLOAT)**: current quantity of the specified fuel type in the inventory
+
+**4. pricePerUnit (FLOAT)**: records the price per unit (e.g., gallon or liter) of the fuel type. It represents the cost customers pay for each unit of the specified fuel type
 
 -  **MtO relation with Fuel type**
+-  **OtM relation with Fuel dispenser**
 
 ---
 
@@ -69,13 +90,16 @@ The "Fuel Inventory" keeps track of the inventory of various fuel types availabl
 
 The "Fuel Dispenser" represents the fuel pump:
 
-**1. dispenserID (INT)**: serves as the unique identifier for each fuel dispenser unit
+**1. id (INT)**: primary key
 
-**2. fuelInv (Foreign Key)**: a foreign key that references the fuel inventory
+**2. fuelInventory (Foreign Key)**: a foreign key that references the fuel inventory
 
-**3. dispenserStatus (BOOL)**: the status of the dispenser, which can be either "true" (active) or "false" (out of service)
+**3. status (BOOL)**: the status of the dispenser, which can be either "true" (active) or "false" (out of service)
 
 **4. maintenanceDue (DATETIME)**: the date and time when maintenance is due for the dispenser
+
+-  **MtO relation with Fuel inventory**
+-  **OtM relation wuth Transaction**
 
 ---
 
@@ -83,11 +107,11 @@ The "Fuel Dispenser" represents the fuel pump:
 
 The "Transaction" records details of transactions conducted at the gas station, including fuel purchases:
 
-**1. transactionId (INT)**: a unique identifier for each transaction
+**1. id (INT)**: primary key
 
 **2. dispenser (Foreign Key)**: a foreign key that references the fuel dispenser involved in transaction
 
-**3. customer (Foreign Key)**: the customer making the transaction
+**3. user (Foreign Key)**: the customer making the transaction
 
 **4. date (DATETIME)**: the date and time when the transaction took place
 
@@ -96,6 +120,7 @@ The "Transaction" records details of transactions conducted at the gas station, 
 **6. fuelDispensed (FLOAT)**: the quantity of fuel dispensed in the transaction
 
 -  **MtO relation with Fuel dispenser**
+-  **MtO relation with User**
 
 ---
 
@@ -103,11 +128,13 @@ The "Transaction" records details of transactions conducted at the gas station, 
 
 The "Sales Report" is used to store sales data and related information for the gas station:
 
-**1. fuelSold (FLOAT)**: the total quantity of fuel sold during a specific period
+**1. id (INT)**: primary key
 
-**2. revenue (FLOAT)**: the total revenue generated from the sale of fuel and other items or services
+**2. fuelSold (FLOAT)**: the total quantity of fuel sold during a specific period
 
-**3. coveringText (CHAR)**: provides a brief description or summary of the sales report
+**3. revenue (FLOAT)**: the total revenue generated from the sale of fuel and other items or services
+
+**4. coveringText (CHAR)**: provides a brief description or summary of the sales report
 
 ---
 
@@ -115,13 +142,15 @@ The "Sales Report" is used to store sales data and related information for the g
 
 The "Special Offer" manages special offers and promotions related to the gas station's loyalty program
 
-**1. loyalty (Foreign Key)**: a foreign key that references the loyalty program to which the special offer is associated
+**1. id (INT)**: primary key
 
-**2. expDate (DATETIME)**: represents the expiration date and time of the special offer
+**2. loyalty (Foreign Key)**: a foreign key that references the loyalty program to which the special offer is associated
 
-**3. text (CHAR)**: stores a brief text description or message related to the special offer.
+**3. expDate (DATETIME)**: represents the expiration date and time of the special offer
 
-**4. discount (INT)**: records the discount amount or percentage offered by the special promotion
+**4. text (CHAR)**: stores a brief text description or message related to the special offer.
+
+**5. discount (INT)**: records the discount amount or percentage offered by the special promotion
 
 -  **MtO relation with Loyality program**
 
@@ -131,8 +160,11 @@ The "Special Offer" manages special offers and promotions related to the gas sta
 
 The "Loyality program" is used for storing info about special promotions
 
-**1. name(CHAR)**: the naming of the particular program
-**2. rules(CHAR)**: rules needed to be complied with in order for program to be active
+**1. id (INT)**: primary key
+
+**2. name(CHAR)**: the naming of the particular program
+
+**3. rules(CHAR)**: rules needed to be complied with in order for program to be active
 
 -  **MtM relation with User**
 
@@ -142,13 +174,16 @@ The "Loyality program" is used for storing info about special promotions
 
 The "Journal" is used to log various actions or events within the system:
 
-**1. actionType (Foreign Key)**: a foreign key that references the type of action or event being logged in the journal
+**1. id (INT)**: primary key
 
-**2. user (Foreign Key)**: a foreign key that references the user who performed the action or event being logged
+**2. actionType (Foreign Key)**: a foreign key that references the type of action or event being logged in the journal
 
-**3. date (DATETIME)**: records the date and time when the action or event was logged
+**3. user (Foreign Key)**: a foreign key that references the user who performed the action or event being logged
+
+**4. date (DATETIME)**: records the date and time when the action or event was logged
 
 -  **MtO relation with Action type**
+-  **MtO relation with User**
 
 ---
 
@@ -156,7 +191,11 @@ The "Journal" is used to log various actions or events within the system:
 
 The "Action type" is used to store different actions that users can perform:
 
-**1. action (CHAR)**: stores a particular action
+**1. id (INT)**: primary key
+
+**2. action (CHAR)**: stores a particular action
+
+-  **MtO relation with Journal**
 
 ---
 
@@ -164,6 +203,10 @@ The "Action type" is used to store different actions that users can perform:
 
 The "Card" is used by customers to apply discounts:
 
-**1. owner (Foreign Key)**: a foreign key that references the owner of the card / **OtO relation with User**
+**1. id (INT)**: primary key
 
-**2. discount (CHAR)**: a value that references the % discount owner gets for purchases
+**2. user (Foreign Key)**: a foreign key that references the owner of the card /
+
+**3. discount (FLOAT)**: a value that references the % discount owner gets for purchases
+
+-  **OtO relation with User**
