@@ -1,0 +1,115 @@
+postgres=# CREATE DATABASE gas_station;
+CREATE DATABASE
+postgres=#
+
+gas_station=# CREATE TABLE role (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# name VARCHAR(50) NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE users (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# email VARCHAR(100) NOT NULL,
+gas_station(# password VARCHAR(50) NOT NULL,
+gas_station(# role_id INT REFERENCES role(id) NOT NULL,
+gas_station(# name VARCHAR(50) NOT NULL,
+gas_station(# surname VARCHAR(50) NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE review (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# text TEXT NOT NULL,
+gas_station(# user_id INT REFERENCES users(id) NOT NULL,
+gas_station(# date DATE NOT NULL,
+gas_station(# rating INT CHECK (rating >=1 AND rating <=5) NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE card (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# user_id INT UNIQUE REFERENCES users(id) NOT NULL,
+gas_station(# discount FLOAT NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE action_type (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# name VARCHAR(50) NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE journal (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# action_type_id INT REFERENCES action_type(id) NOT NULL,
+gas_station(# user_id INT REFERENCES users(id) NOT NULL,
+gas_station(# date TIMESTAMP NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE fuel_type (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# name VARCHAR(50) NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE fuel_inventory (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# fuel_type_id INT REFERENCES fuel_type(id) NOT NULL,
+gas_station(# quantity FLOAT NOT NULL,
+gas_station(# price_per_unit FLOAT NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE fuel_dispenser (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# fuel_inventory_id INT REFERENCES fuel_inventory(id) NOT NULL,
+gas_station(# status BOOLEAN NOT NULL,
+gas_station(# maintenance_due DATE NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# ALTER TABLE review ADD fuel_dispenser_id INT REFERENCES fuel_dispenser(id) NOT NULL;
+ALTER TABLE
+
+gas_station=# CREATE TABLE transaction (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# fuel_dispenser_id INT REFERENCES fuel_dispenser(id) NOT NULL,
+gas_station(# user_id INT REFERENCES users(id) NOT NULL,
+gas_station(# date TIMESTAMP NOT NULL,
+gas_station(# total_cost FLOAT NOT NULL,
+gas_station(# fuel_dispensed FLOAT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE sales_report (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# fuel_sold FLOAT NOT NULL,
+gas_station(# revenue FLOAT NOT NULL,
+gas_station(# covering_text TEXT NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE loyality_program (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# name VARCHAR(50) NOT NULL,
+gas_station(# rules VARCHAR(100) NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE special_offer (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# loyality_program_id INT REFERENCES loyality_program(id) NOT NULL,
+gas_station(# exp_date DATE NOT NULL,
+gas_station(# text TEXT NOT NULL,
+gas_station(# discount INT CHECK (discount >=1 AND discount <= 50) NOT NULL
+gas_station(# );
+CREATE TABLE
+
+gas_station=# CREATE TABLE loyality_program_user (
+gas_station(# id SERIAL PRIMARY KEY,
+gas_station(# loyality_program_id INT REFERENCES loyality_program(id) NOT NULL,
+gas_station(# user_id INT REFERENCES users(id) NOT NULL
+gas_station(# );
+CREATE TABLE
