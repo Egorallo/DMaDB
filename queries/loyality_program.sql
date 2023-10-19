@@ -1,0 +1,8 @@
+insert into loyality_program (name, rules) values ('Integer non velit.', 'Suspendisse potenti. In eleifend quam a odio.');
+insert into loyality_program (name, rules) values ('Fusce posuere felis sed lacus.', 'Vestibulum sed magna at nunc commodo placerat. Praesent blandit.');
+insert into loyality_program (name, rules) values ('Phasellus id sapien in sapien iaculis congue.', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.');
+insert into loyality_program (name, rules) values ('Suspendisse potenti.', 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
+insert into loyality_program (name, rules) values ('Duis bibendum.', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.');
+insert into loyality_program (name, rules) values ('Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.', 'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.');
+insert into loyality_program (name, rules) values ('Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.', 'Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
+insert into loyality_program (name, rules) values ('In blandit ultrices enim.', 'Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');

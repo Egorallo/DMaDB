@@ -1,0 +1,10 @@
+insert into journal (action_type_id, user_id, date) values (3, 10, '2023-03-31 08:34:22');
+insert into journal (action_type_id, user_id, date) values (1, 100, '2023-03-08 17:05:40');
+insert into journal (action_type_id, user_id, date) values (2, 58, '2022-12-02 09:56:30');
+insert into journal (action_type_id, user_id, date) values (1, 23, '2022-11-09 19:49:36');
+insert into journal (action_type_id, user_id, date) values (2, 15, '2022-12-26 22:47:14');
+insert into journal (action_type_id, user_id, date) values (1, 21, '2023-02-12 21:28:07');
+insert into journal (action_type_id, user_id, date) values (3, 48, '2023-04-15 22:54:56');
+insert into journal (action_type_id, user_id, date) values (1, 24, '2023-05-22 12:52:38');
+insert into journal (action_type_id, user_id, date) values (3, 98, '2022-11-22 19:14:18');
+insert into journal (action_type_id, user_id, date) values (3, 53, '2023-01-17 20:01:34');

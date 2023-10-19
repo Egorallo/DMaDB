@@ -1,0 +1,10 @@
+insert into sales_report (fuel_sold, revenue, covering_text) values (3830.0, 2746.54, 'Aliquam erat volutpat. In congue.');
+insert into sales_report (fuel_sold, revenue, covering_text) values (1277.0, 4241.71, 'Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.');
+insert into sales_report (fuel_sold, revenue, covering_text) values (3382.1, 4102.47, 'Ut tellus.');
+insert into sales_report (fuel_sold, revenue, covering_text) values (4495.4, 2572.1, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.');
+insert into sales_report (fuel_sold, revenue, covering_text) values (2419.7, 1088.14, 'In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.');
+insert into sales_report (fuel_sold, revenue, covering_text) values (2634.0, 3936.62, 'Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.');
+insert into sales_report (fuel_sold, revenue, covering_text) values (2199.4, 4892.74, 'Aliquam non mauris.');
+insert into sales_report (fuel_sold, revenue, covering_text) values (2172.0, 1146.45, 'Nulla facilisi. Cras non velit nec nisi vulputate nonummy.');
+insert into sales_report (fuel_sold, revenue, covering_text) values (4122.3, 3498.09, 'Phasellus sit amet erat.');
+insert into sales_report (fuel_sold, revenue, covering_text) values (3479.0, 3274.93, 'Duis bibendum. Morbi non quam nec dui luctus rutrum.');

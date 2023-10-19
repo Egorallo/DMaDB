@@ -113,3 +113,45 @@ gas_station(# loyality_program_id INT REFERENCES loyality_program(id) NOT NULL,
 gas_station(# user_id INT REFERENCES users(id) NOT NULL
 gas_station(# );
 CREATE TABLE
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/sales_report.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/role.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/users.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/loyality_program.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/special_offer.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/loyality_program_user.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/action_type.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/journal.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/card.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/fuel_type.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/fuel_inventory.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/fuel_dispenser.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/transaction.sql
+INSERT 0 1
+
+gas_station=# \i C:/Users/sea25/Desktop/bsuir/DMaDB/DMaDB/queries/review.sql
+INSERT 0 1

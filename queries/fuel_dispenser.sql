@@ -1,0 +1,10 @@
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (4, false, '13/01/2024');
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (4, false, '16/11/2023');
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (3, false, '04/02/2024');
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (3, false, '12/12/2023');
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (3, false, '14/02/2024');
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (5, true, '27/12/2023');
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (5, true, '06/11/2023');
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (3, false, '26/10/2023');
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (2, false, '30/11/2023');
+insert into fuel_dispenser (fuel_inventory_id, status, maintenance_due) values (1, false, '25/11/2023');
