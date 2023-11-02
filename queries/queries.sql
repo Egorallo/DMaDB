@@ -174,7 +174,6 @@ SELECT
 FROM
   transaction;
 
-
 CREATE TABLE oil_extracted (
   id SERIAL,
   amount INT,
@@ -194,4 +193,87 @@ CREATE TABLE Asia PARTITION OF oil_extracted FOR
 VALUES
   IN ('Asia');
 
-  
+SELECT
+  date,
+  SUM(total_cost) AS daily_sales
+FROM
+  transaction
+GROUP BY
+  date
+HAVING
+  SUM(total_cost) > (
+    SELECT
+      AVG(total_cost)
+    FROM
+      transaction
+  );
+
+SELECT
+  revenue AS money
+FROM
+  sales_report
+UNION
+SELECT
+  total_cost AS money
+FROM
+  transaction;
+
+SELECT
+  name,
+  surname
+FROM
+  users
+WHERE
+  EXISTS (
+    SELECT
+      1
+    FROM
+      review
+    WHERE
+      users.id = review.user_id
+      AND review.rating = 5
+  );
+
+SELECT
+  name
+FROM
+  users
+WHERE
+  EXISTS (
+    SELECT
+      1
+    FROM
+      transaction
+    WHERE
+      users.id = transaction.user_id
+      AND transaction.date > '2022-01-01'
+  );
+
+CREATE INDEX name_index ON users(name);
+EXPLAIN
+SELECT
+  name
+FROM
+  users
+WHERE
+  name LIKE 'F%';
+
+CREATE TABLE vip_users (surname VARCHAR(50));
+
+INSERT INTO
+  vip_users(surname)
+SELECT
+  surname
+FROM
+  users;
+
+SELECT
+  id AS order_id,
+  user_id,
+  date,
+  CASE
+    WHEN total_cost > 100 THEN 'High cost'
+    ELSE 'Low cost'
+  END AS trans_status
+FROM
+  transaction;
