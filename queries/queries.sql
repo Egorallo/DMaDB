@@ -111,6 +111,8 @@ WHERE
       transaction
   );
 
+
+------ JOINS
 SELECT
   fuel_dispenser.status,
   fuel_inventory.price_per_unit
@@ -136,9 +138,11 @@ SELECT
   fuel_dispenser.status,
   fuel_inventory.price_per_unit
 FROM
-  fuel_dispenser FULL FULL
-  JOIN fuel_inventory ON fuel_dispenser.fuel_inventory_id = fuel_inventory.id;
+  fuel_dispenser 
+  FULL JOIN fuel_inventory ON fuel_dispenser.fuel_inventory_id = fuel_inventory.id;
 
+
+------ GROUP BY
 SELECT
   fuel_dispenser_id,
   AVG(total_cost) AS avg_bill
@@ -154,6 +158,8 @@ HAVING
       transaction
   );
 
+
+------ PARTITION BY
 SELECT
   user_id,
   id,
@@ -174,6 +180,8 @@ SELECT
 FROM
   transaction;
 
+
+------ PARTITION BY LIST
 CREATE TABLE oil_extracted (
   id SERIAL,
   amount INT,
@@ -193,6 +201,8 @@ CREATE TABLE Asia PARTITION OF oil_extracted FOR
 VALUES
   IN ('Asia');
 
+
+------ HAVING
 SELECT
   date,
   SUM(total_cost) AS daily_sales
@@ -208,6 +218,8 @@ HAVING
       transaction
   );
 
+
+------ UNION
 SELECT
   revenue AS money
 FROM
@@ -218,6 +230,8 @@ SELECT
 FROM
   transaction;
 
+
+------ EXISTS
 SELECT
   name,
   surname
@@ -249,6 +263,8 @@ WHERE
       AND transaction.date > '2022-01-01'
   );
 
+
+------ INDEX EXPLAIN
 CREATE INDEX name_index ON users(name);
 EXPLAIN
 SELECT
@@ -257,7 +273,10 @@ FROM
   users
 WHERE
   name LIKE 'F%';
+DROP INDEX name_index;
 
+
+------ INSERT INTO SELECT
 CREATE TABLE vip_users (surname VARCHAR(50));
 
 INSERT INTO
@@ -267,6 +286,8 @@ SELECT
 FROM
   users;
 
+
+------ CASE
 SELECT
   id AS order_id,
   user_id,
