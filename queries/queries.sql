@@ -293,8 +293,8 @@ SELECT
   user_id,
   date,
   CASE
-    WHEN total_cost > 100 THEN 'High cost'
-    ELSE 'Low cost'
+    WHEN total_cost > 100 THEN 'High balelr'
+    ELSE 'Low baller'
   END AS trans_status
 FROM
   transaction;
